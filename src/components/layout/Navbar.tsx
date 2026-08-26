@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useNotifications } from '../../context/NotificationContext';
 import { useAuth } from '../../context/AuthContext';
 import { useJob } from '../../context/JobContext';
+import { MobileMenuDrawer } from './MobileMenuDrawer';
 
 export const Navbar: React.FC = () => {
   const location = useLocation();
@@ -10,6 +11,7 @@ export const Navbar: React.FC = () => {
   const { unreadCount } = useNotifications();
   const { user, logout } = useAuth();
   const { candidateProfile, recruiterCompany } = useJob();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -23,6 +25,7 @@ export const Navbar: React.FC = () => {
   };
 
   return (
+    <>
     <header className="fixed top-0 left-0 w-full bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 shadow-sm z-50 transition-all">
       <div className="max-w-container-max mx-auto h-16 px-4 md:px-8 flex items-center justify-between">
         {/* Brand Logo */}
@@ -135,6 +138,16 @@ export const Navbar: React.FC = () => {
               >
                 <span className="material-symbols-outlined text-[20px]">logout</span>
               </button>
+              {/* Bouton Menu : seule façon d'atteindre Gestion des offres,
+                  Profil Entreprise, Paramètres, Aide sur mobile (la sidebar
+                  desktop est masquée en dessous de md) */}
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                title="Menu"
+                className="flex md:hidden w-10 h-10 rounded-full items-center justify-center text-primary hover:bg-surface-variant/50 transition-colors"
+              >
+                <span className="material-symbols-outlined text-[22px]">menu</span>
+              </button>
             </div>
           ) : (
             <div className="flex items-center gap-2">
@@ -155,5 +168,7 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
     </header>
+    <MobileMenuDrawer isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+    </>
   );
 };
