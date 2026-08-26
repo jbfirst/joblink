@@ -81,18 +81,15 @@ export const MobileMenuDrawer: React.FC<MobileMenuDrawerProps> = ({ isOpen, onCl
               <span>{link.label}</span>
             </Link>
           ))}
-        </nav>
-
-        <div className="border-t border-outline-variant/20 p-2">
           <button
             type="button"
             onClick={handleLogout}
-            className="w-full flex items-center gap-3.5 px-5 py-3 text-sm font-medium text-error hover:bg-error/10 rounded-xl transition-colors"
+            className="w-full flex items-center gap-3.5 px-5 py-3 text-sm font-medium text-error hover:bg-error/10 transition-colors"
           >
             <span className="material-symbols-outlined text-[20px]">logout</span>
             <span>Se déconnecter</span>
           </button>
-        </div>
+        </nav>
       </div>
     </div>
   );
