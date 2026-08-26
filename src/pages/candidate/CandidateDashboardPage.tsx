@@ -21,7 +21,7 @@ export const CandidateDashboardPage: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-primary mb-1">
-            Bon retour, {candidateProfile.fullName.split(' ')[0]} 👋
+            Bon retour, {candidateProfile.fullName.split(' ')[0]} 
           </h1>
           <p className="text-sm text-on-surface-variant">
             Voici l'aperçu de votre activité et des opportunités professionnelles aujourd'hui.
