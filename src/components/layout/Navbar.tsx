@@ -34,7 +34,7 @@ export const Navbar: React.FC = () => {
             <span className="text-xl font-extrabold tracking-tight text-primary block leading-none">
               JobLink <span className="text-secondary font-bold text-base">Togo</span>
             </span>
-            <span className="text-[10px] text-on-surface-variant font-medium tracking-wide">
+            <span className="text-[10px] text-on-surface-variant font-medium tracking-wide hidden sm:block">
               Lomé • Kara • Sokodé
             </span>
           </div>
@@ -86,10 +86,10 @@ export const Navbar: React.FC = () => {
 
         {/* Right Action Icons & Auth State */}
         <div className="flex items-center gap-3">
-          {/* Notifications Link */}
+          {/* Notifications Link (masqué sur mobile : déjà présent dans la barre du bas) */}
           <Link
             to="/notifications"
-            className="relative w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-variant/50 transition-colors"
+            className="relative w-10 h-10 rounded-full hidden md:flex items-center justify-center text-primary hover:bg-surface-variant/50 transition-colors"
             title="Notifications"
           >
             <span className="material-symbols-outlined text-[22px]">notifications</span>
